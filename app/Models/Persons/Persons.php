@@ -24,14 +24,14 @@ class Persons extends Model
   protected $fillable = ['nombre', 'email'];
 
   public function tourist(){
-    return $this->hasMany(Turist::class,'id_turista');
+    return $this->hasOne(Turist::class,'id_turista');
   }
 
   public function afilliate(){
-    return $this->hasMany(Afilliate::class,'id_afiliado');
+    return $this->hasOne(Afilliate::class,'id_afiliado');
   }
 
   public function administrator(){
-    return $this->hasMany(Administrator::class,'id_administrador');
+    return $this->hasOne(Administrator::class,'id_administrador');
   }
 }

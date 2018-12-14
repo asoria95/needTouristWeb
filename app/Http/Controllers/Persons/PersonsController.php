@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Persons;
 
+use App\Http\Controllers\Controller;
 use App\Models\Persons\Persons;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,9 @@ class PersonsController extends Controller
      */
     public function index()
     {
-        //
+      $persons=Persons::paginate(20);
+      //return view('Persons.Persons.index',compact('persons'));
+      return view('Persons.persons',compact('persons'));
     }
 
     /**
