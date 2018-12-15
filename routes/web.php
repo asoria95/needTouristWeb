@@ -17,3 +17,10 @@ Route::get('/', function () {
 
 
 Route::get('/persons','Persons\PersonsController@index')->name('indexPersons');
+
+Auth::routes();
+
+Route::get('auth/{provider}', 'Auth\SocialAuthController@redirectToProvider')->name('social.auth');
+Route::get('auth/{provider}/callback', 'Auth\SocialAuthController@handleProviderCallback');
+
+Route::get('/home', 'HomeController@index')->name('home');
