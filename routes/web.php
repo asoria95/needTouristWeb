@@ -14,3 +14,16 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::get('/persons','Persons\PersonsController@index')->name('indexPersons');
+
+Auth::routes();
+
+Route::get('auth/{provider}', 'Auth\SocialAuthController@redirectToProvider')->name('social.auth');
+Route::get('auth/{provider}/callback', 'Auth\SocialAuthController@handleProviderCallback');
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::resource('tourist', 'Persons\TuristController');
+Route::get('/tourist/{tourist}/delete', 'Persons\TuristController@delete');

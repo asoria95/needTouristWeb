@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers\Persons;
 
-use App\Http\Controllers\Controller;
-use App\Models\Persons\Persons;
+use App\Models\Persons\Turist;
 use Illuminate\Http\Request;
 
-class PersonsController extends Controller
+class TuristController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +14,7 @@ class PersonsController extends Controller
      */
     public function index()
     {
-      $persons=Persons::paginate(20);
-      //return view('Persons.Persons.index',compact('persons'));
-      return view('Persons.persons',compact('persons'));
+        //
     }
 
     /**
@@ -44,10 +41,10 @@ class PersonsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Persons  $persons
+     * @param  \App\Turist  $turist
      * @return \Illuminate\Http\Response
      */
-    public function show(Persons $persons)
+    public function show(Turist $turist)
     {
         //
     }
@@ -55,10 +52,10 @@ class PersonsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Persons  $persons
+     * @param  \App\Turist  $turist
      * @return \Illuminate\Http\Response
      */
-    public function edit(Persons $persons)
+    public function edit(Turist $turist)
     {
         //
     }
@@ -67,10 +64,10 @@ class PersonsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Persons  $persons
+     * @param  \App\Turist  $turist
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Persons $persons)
+    public function update(Request $request, Turist $turist)
     {
         //
     }
@@ -78,10 +75,10 @@ class PersonsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Persons  $persons
+     * @param  \App\Turist  $turist
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Persons $persons)
+    public function destroy(Turist $turist)
     {
         //
     }
