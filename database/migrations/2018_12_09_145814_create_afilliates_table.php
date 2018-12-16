@@ -17,7 +17,7 @@ class CreateAfilliatesTable extends Migration
           $table->bigInteger('id_afiliado');
           $table->text('direccion');
           $table->integer('edad');
-          $table->string('curriculum',100);
+          $table->string('curriculum',100)->nullable();
           $table->primary('id_afiliado');
           $table->timestamps();
         });

@@ -11,7 +11,6 @@ class afilliateSeeder extends Seeder
      */
     public function run()
     {
-
       for ($i=25; $i <=125  ; $i++) {
         factory(App\Models\Persons\Afilliate::class)->create([
           'id_afiliado' => $i

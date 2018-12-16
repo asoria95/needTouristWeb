@@ -21,6 +21,8 @@ class Afilliate extends Model
 
   protected $primaryKey = 'id_afiliado';
 
+  protected $fillable = ['id_afiliado','direccion', 'edad','curriculum'];
+
   public function person(){
     return $this->belongsTo(Persons::class, 'id_afiliado');
   }

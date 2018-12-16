@@ -14,7 +14,8 @@ class RelationPersonsAfilliates extends Migration
     public function up()
     {
       Schema::table('afiliados', function (Blueprint $table) {
-        $table->foreign('id_afiliado')->references('id_persona')->on('personas');
+        $table->foreign('id_afiliado')->references('id_persona')->on('personas')
+        ->onDelete('cascade')->onUpdate('cascade');
       });
     }
 
