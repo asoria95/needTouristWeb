@@ -74,7 +74,6 @@
         </div>
     </div>
     <!-- /.row -->
-
     @if(Session::has('message'))
 
         <div class="alert alert-success">

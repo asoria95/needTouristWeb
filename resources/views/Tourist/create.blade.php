@@ -74,6 +74,27 @@
         </div>
     </div>
     <!-- /.row -->
+            <div class="col-md-8 col-md-offset-2">
+              @if (count($errors) > 0)
+                <div class="alert alert-danger">
+                  <strong>Error!</strong> Revise los campos obligatorios.<br><br>
+                  <ul>
+                    @foreach ($errors->all() as $error)
+                      <li>{{ $error }}</li>
+                    @endforeach
+                  </ul>
+                </div>
+              @endif
+
+            </div>
+
+            @if(Session::has('success'))
+              <div class="alert alert-info">
+                {{Session::get('success')}}
+              </div>
+            @endif
+
+
 
             <div class="col-md-8 col-md-offset-2">
               @if (count($errors) > 0)
@@ -134,13 +155,8 @@
                                   </div>
                                   <div class="col-xs-4 col-sm-4 col-md-4">
                                       <button type="reset" class="btn btn-default btn-block">Limpiar</button>
-
-                                      <button type="submit" class="btn btn-success btn-block">Submit Button</button>
                                   </div>
-                                  <div class="col-xs-4 col-sm-4 col-md-4">
-                                      <button type="reset" class="btn btn-default btn-block">Reset Button</button>
 
-                                  </div>
                                   <div class="col-xs-4 col-sm-4 col-md-4">
                                       <a href="{{ route('tourist.index') }}" class="btn btn-info btn-block" >Atrás</a>
                                   </div>

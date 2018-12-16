@@ -14,7 +14,6 @@
                 <tbody>
                      <tr>
                      @forelse ($tourists as $tourist)
-
                         <td>{{$tourist->person->nombre}}</td>
                         <td>{{$tourist->person->email}}</td>
                         <td>{{$tourist->idioma}}</td>

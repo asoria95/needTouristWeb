@@ -24,3 +24,8 @@ Route::get('auth/{provider}', 'Auth\SocialAuthController@redirectToProvider')->n
 Route::get('auth/{provider}/callback', 'Auth\SocialAuthController@handleProviderCallback');
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::resource('tourist', 'Persons\TuristController');
+Route::get('/tourist/{tourist}/delete', 'Persons\TuristController@delete');
+
