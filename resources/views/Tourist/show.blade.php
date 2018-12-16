@@ -74,15 +74,7 @@
         </div>
     </div>
     <!-- /.row -->
-    @if(Session::has('message'))
-
-        <div class="alert alert-success">
-          <strong>{{Session::get('message')}}</strong>
-        </div>
-
-    @endif
-
-        @include('Tourist.partials.touristTable')
+        @include('Tourist.partials.tourist')
 </div>
 <!-- /.container-fluid -->
 

@@ -34,3 +34,9 @@ Route::get('/afilliate/{afilliate}/curriculum', 'Persons\AfilliateController@cur
 Route::get('/afilliate/{afilliate}/download', 'Persons\AfilliateController@downloadCurriculum')->name('afilliate.downloadCurriculum');
 Route::patch('/afilliate/{afilliate}/updateFile', 'Persons\AfilliateController@updateFile')->name('afilliate.updateFile');
 Route::get('/afilliate/{afilliate}/existCurriculum', 'Persons\AfilliateController@existCurriculum')->name('afilliate.existCurriculum');
+
+//Rutas del crud de turistas
+Route::resource('tourist', 'Persons\TuristController');
+Route::get('/tourist/{tourist}/delete', 'Persons\TuristController@delete');
+
+
