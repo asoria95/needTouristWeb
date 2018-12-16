@@ -25,5 +25,7 @@ Route::get('auth/{provider}/callback', 'Auth\SocialAuthController@handleProvider
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+
 Route::resource('tourist', 'Persons\TuristController');
 Route::get('/tourist/{tourist}/delete', 'Persons\TuristController@delete');
+
