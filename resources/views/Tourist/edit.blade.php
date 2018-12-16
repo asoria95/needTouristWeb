@@ -74,7 +74,6 @@
         </div>
     </div>
     <!-- /.row -->
-
             <div class="col-md-8 col-md-offset-2">
               @if (count($errors) > 0)
                 <div class="alert alert-danger">
@@ -98,7 +97,6 @@
 
 
 
-
     <div id="page-wrapper">
                 <div class="container-fluid">
                     <div class="row">
@@ -106,40 +104,41 @@
 
                           <h1>Nuevo turista</h1>
 
-                          <form method="POST" action="{{ route('tourist.store') }}"  role="form">
-                							{{ csrf_field() }}
-
+                          <form method="POST" action="{{ route('tourist.update',$tourist->id_turista) }}"  role="form">
+                							{{ csrf_field() }}+
+                              <input name="_method" type="hidden" value="PATCH">
                               <!-- Name -->
                                 <div class="form-group">
                                     <label>Nombre </label>
-                                    <input type="text" class="form-control" name="nombre" id="nombre"  placeholder="Nombre del Turista">
+                                    <input type="text" class="form-control" name="nombre" id="nombre"  placeholder="Nombre del Turista" value="{{$tourist->person->nombre}}">
                                 </div>
                               <!-- Email -->
                                 <div class="form-group">
                                     <label>Correo Electrònico </label>
-                                    <input type="email" class="form-control" name="email" id="email"  placeholder="Email de Turista">
+                                    <input type="email" class="form-control" name="email" id="email"  placeholder="Email de Turista" value="{{$tourist->person->email}}">
                                 </div>
 
                                 <!-- Language -->
-                                  @include('Tourist.partials.listLanguage')
+                                  <div class="form-group">
+                                      <select name="idioma" id="idioma" class="form-control" value="{{$tourist->idioma}}">
+                                        <option value="Español">Español</option>
+                                        <option value="Inglés">Inglés</option>
+                                        <option value="Frances">Frances</option>
+                                        <option value="Alemán">Alemán</option>
+                                        <option value="Angola">Italiano</option>
+                                      </select>
+                                </div>
 
                                 <!-- Countries -->
-                                 @include('Tourist.partials.listCountry')
+                                 @include('Tourist.partials.listCountryValue')
 
 
                                  <div class="col-xs-12 col-sm-12 col-md-12">
                                    <div class="col-xs-4 col-sm-4 col-md-4">
-
-                                      <button type="submit" class="btn btn-success btn-block">Guardar</button>
+                                      <button type="submit" class="btn btn-success btn-block">Actualizar</button>
                                   </div>
                                   <div class="col-xs-4 col-sm-4 col-md-4">
                                       <button type="reset" class="btn btn-default btn-block">Limpiar</button>
-
-                                      <button type="submit" class="btn btn-success btn-block">Submit Button</button>
-                                  </div>
-                                  <div class="col-xs-4 col-sm-4 col-md-4">
-                                      <button type="reset" class="btn btn-default btn-block">Reset Button</button>
-
                                   </div>
                                   <div class="col-xs-4 col-sm-4 col-md-4">
                                       <a href="{{ route('tourist.index') }}" class="btn btn-info btn-block" >Atrás</a>
