@@ -74,6 +74,7 @@
         </div>
     </div>
     <!-- /.row -->
+
             <div class="col-md-8 col-md-offset-2">
               @if (count($errors) > 0)
                 <div class="alert alert-danger">
@@ -97,6 +98,7 @@
 
 
 
+
     <div id="page-wrapper">
                 <div class="container-fluid">
                     <div class="row">
@@ -106,6 +108,7 @@
 
                           <form method="POST" action="{{ route('tourist.store') }}"  role="form">
                 							{{ csrf_field() }}
+
                               <!-- Name -->
                                 <div class="form-group">
                                     <label>Nombre </label>
@@ -126,10 +129,17 @@
 
                                  <div class="col-xs-12 col-sm-12 col-md-12">
                                    <div class="col-xs-4 col-sm-4 col-md-4">
+
                                       <button type="submit" class="btn btn-success btn-block">Guardar</button>
                                   </div>
                                   <div class="col-xs-4 col-sm-4 col-md-4">
                                       <button type="reset" class="btn btn-default btn-block">Limpiar</button>
+
+                                      <button type="submit" class="btn btn-success btn-block">Submit Button</button>
+                                  </div>
+                                  <div class="col-xs-4 col-sm-4 col-md-4">
+                                      <button type="reset" class="btn btn-default btn-block">Reset Button</button>
+
                                   </div>
                                   <div class="col-xs-4 col-sm-4 col-md-4">
                                       <a href="{{ route('tourist.index') }}" class="btn btn-info btn-block" >Atrás</a>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Persons;
 
+use App\Http\Controllers\Controller;
 use App\Models\Persons\Turist;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,9 @@ class TuristController extends Controller
      */
     public function index()
     {
-        //
+      $tourists=Turist::paginate(20);
+      //return view('Persons.Persons.index',compact('persons'));
+      return view('Tourist.tourist',compact('tourists'));
     }
 
     /**
@@ -24,7 +27,7 @@ class TuristController extends Controller
      */
     public function create()
     {
-        //
+        return view('Tourist.create');
     }
 
     /**
@@ -35,7 +38,12 @@ class TuristController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $this->validate($request,[ 'nombre'=>'required', 'email'=>'required']);
+      $data = ['nombre' => $request->input('nombre'), 'email' => $request->input('email')];
+      $person = Persons::create($data);
+      $data = ['id_turista' =>  $person->id_persona, 'idioma' =>  $request->input('idioma'), 'residencia' => $request->input('residencia')];
+      Turist::create($data);
+      return redirect()->route('turist.index')->with('success','Registro creado satisfactoriamente');
     }
 
     /**
