@@ -26,6 +26,17 @@ Route::get('auth/{provider}/callback', 'Auth\SocialAuthController@handleProvider
 Route::get('/home', 'HomeController@index')->name('home');
 
 
+//Rutas del crud de afiliados
+Route::resource('afilliate', 'Persons\AfilliateController');
+
+Route::get('/afilliate/{afilliate}/delete', 'Persons\AfilliateController@delete');
+Route::get('/afilliate/{afilliate}/curriculum', 'Persons\AfilliateController@curriculum')->name('afilliate.curriculum');
+Route::get('/afilliate/{afilliate}/download', 'Persons\AfilliateController@downloadCurriculum')->name('afilliate.downloadCurriculum');
+Route::patch('/afilliate/{afilliate}/updateFile', 'Persons\AfilliateController@updateFile')->name('afilliate.updateFile');
+Route::get('/afilliate/{afilliate}/existCurriculum', 'Persons\AfilliateController@existCurriculum')->name('afilliate.existCurriculum');
+
+//Rutas del crud de turistas
 Route::resource('tourist', 'Persons\TuristController');
 Route::get('/tourist/{tourist}/delete', 'Persons\TuristController@delete');
+
 
