@@ -10,6 +10,7 @@
 
  <div class="collapse navbar-collapse navbar-ex1-collapse">
      <ul class="nav navbar-nav side-nav">
+
        <!-- Menu tourist Section -->
        <li>
            <a href="{{route('tourist.index')}}"><i class="fa fa-fw fa-users"></i> Sección Usuarios</a>

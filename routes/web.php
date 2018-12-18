@@ -40,6 +40,8 @@ Route::get('/afilliate/{afilliate}/existCurriculum', 'Persons\AfilliateControlle
 Route::resource('tourist', 'Persons\TuristController');
 Route::get('/tourist/{tourist}/delete', 'Persons\TuristController@delete');
 
+
 //Rutas del crud de roles de la aplicacion
 Route::resource('role', 'Persons\RoleController');
 Route::get('/role/{role}/delete', 'Persons\RoleController@delete')->name('role.delete');
+

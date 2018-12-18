@@ -6,6 +6,7 @@
 
  @include('layouts.banner')
 
+
  <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
 
  <div class="collapse navbar-collapse navbar-ex1-collapse">
@@ -27,6 +28,7 @@
  </div>
  <!-- /.navbar-collapse  -->
  </nav>
+
 
 <div id="page-wrapper">
 
@@ -59,12 +61,14 @@
 
     @endif
 
+
     <div class="row">
       <div class="col-md-12">
           <a class="btn btn-primary btn-lg" href="{{route('tourist.create')}}" ><i class="fas fa-user-plus"></i> Añadir Afiliado</a>
         <hr>
       </div>
     </div>
+
 
         @include('Afilliate.partials.afilliateTable')
 </div>
