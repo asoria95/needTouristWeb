@@ -6,7 +6,6 @@
 
  @include('layouts.banner')
 
-
  <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
 
  <div class="collapse navbar-collapse navbar-ex1-collapse">
@@ -16,11 +15,12 @@
            <a href="{{route('tourist.index')}}"><i class="fa fa-fw fa-users"></i> Sección Usuarios</a>
        </li>
        <!-- Menu afilliate Section -->
-       <li class="active">
-           <a href="{{route('afilliate.index')}}"><i class="fas fa-user-tie"></i> Listado de Afiliados</a>
-       </li>
-       <!-- Menu role Section -->
        <li>
+           <a href="{{route('afilliate.index')}}"><i class="fas fa-user-tie"></i> Sección Afiliados</a>
+       </li>
+
+       <!-- Menu role Section -->
+       <li class="active">
            <a href="{{route('role.index')}}"><i class="fab fa-creative-commons-nd"></i> Sección Roles</a>
        </li>
 
@@ -28,7 +28,6 @@
  </div>
  <!-- /.navbar-collapse  -->
  </nav>
-
 
 <div id="page-wrapper">
 
@@ -38,15 +37,15 @@
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header">
-                Sección Afiliados
-                <small>Listado de Afiliados</small>
+                Sección Roles
+                <small>Lista de Roles</small>
             </h1>
             <ol class="breadcrumb">
                 <li>
-                    <i class="fa fa-dashboard"></i>  <a href="{{route('afilliate.index')}}">Dashboard</a>
+                    <i class="fa fa-dashboard"></i>  <a href="{{route('role.index')}}">Roles</a>
                 </li>
                 <li class="active">
-                    <i class="fa fa-file"></i> Listado de Afiliados
+                    <i class="fa fa-file"></i> Lista de Roles
                 </li>
             </ol>
 
@@ -61,16 +60,14 @@
 
     @endif
 
-
     <div class="row">
       <div class="col-md-12">
-          <a class="btn btn-primary btn-lg" href="{{route('tourist.create')}}" ><i class="fas fa-user-plus"></i> Añadir Afiliado</a>
+          <a class="btn btn-primary btn-lg" href="{{route('role.create')}}" ><i class="fas fa-plus-square"></i> Añadir Rol</a>
         <hr>
       </div>
     </div>
 
-
-        @include('Afilliate.partials.afilliateTable')
+        @include('Role.partials.roleTable')
 </div>
 <!-- /.container-fluid -->
 

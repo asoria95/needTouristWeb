@@ -26,8 +26,11 @@
                 </tr>
                 <tr>
                   <th>Opciones</th>
-                  <td><a class="btn btn-primary btn-xs" href="{{action('Persons\AfilliateController@edit', $afilliate)}}" ><span class="glyphicon glyphicon-pencil"></span></a>
-                  <a class="btn btn-danger btn-xs" href="{{action('Persons\AfilliateController@delete', $afilliate)}}" ><span class="glyphicon glyphicon-trash"></span></a></td>
+
+                  <td><a class="btn btn-warning btn-xs" href="{{action('Persons\AfilliateController@edit', $afilliate)}}" ><span class="glyphicon glyphicon-pencil"></span></a>
+                  <a class="btn btn-danger btn-xs" href="{{action('Persons\AfilliateController@delete', $afilliate)}}" ><span class="glyphicon glyphicon-trash"></span></a>
+                  <a class="btn btn-success btn-xs" href="{{route( ('afilliate.show') , $afilliate)}}" ><span class="glyphicon glyphicon-eye-open"></span></td>
+
                 </tr>
               </tbody>
             </table>
