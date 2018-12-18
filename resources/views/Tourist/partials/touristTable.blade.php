@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-lg-12">
-        <h2>Listado de Personas</h2>
+        <h2>Listado de Turistas</h2>
         <div class="table-responsive">
             <table class="table table-bordered table-hover">
                 <thead>
@@ -18,8 +18,9 @@
                         <td>{{$tourist->person->email}}</td>
                         <td>{{$tourist->idioma}}</td>
                         <td>{{$tourist->residencia}}</td>
-                        <td><a class="btn btn-primary btn-xs" href="{{action('Persons\TuristController@edit', $tourist->id_turista)}}" ><span class="glyphicon glyphicon-pencil"></span></a></td>
-                        <td><a class="btn btn-danger btn-xs" href="{{action('Persons\TuristController@delete', $tourist)}}" ><span class="glyphicon glyphicon-trash"></span></a></td>
+                        <td><a class="btn btn-warning btn-xs" href="{{action('Persons\TuristController@edit', $tourist->id_turista)}}" ><span class="glyphicon glyphicon-pencil"></span></a>
+                        <a class="btn btn-danger btn-xs" href="{{action('Persons\TuristController@delete', $tourist)}}" ><span class="glyphicon glyphicon-trash"></span></a>
+                        <a class="btn btn-success btn-xs" href="{{route( ('tourist.show') , $tourist->id_turista)}}" ><span class="glyphicon glyphicon-eye-open"></span></a></td>
                       </tr>
 
                      @empty

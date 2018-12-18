@@ -11,11 +11,11 @@
  <div class="collapse navbar-collapse navbar-ex1-collapse">
      <ul class="nav navbar-nav side-nav">
        <!-- Menu tourist Section -->
-       <li class="active">
+       <li>
            <a href="{{route('tourist.index')}}"><i class="fa fa-fw fa-users"></i> Sección Usuarios</a>
        </li>
        <!-- Menu afilliate Section -->
-       <li>
+       <li class="active">
            <a href="{{route('afilliate.index')}}"><i class="fas fa-user-tie"></i> Listado de Afiliados</a>
        </li>
        <!-- Menu role Section -->
@@ -28,7 +28,6 @@
  <!-- /.navbar-collapse  -->
  </nav>
 
-
 <div id="page-wrapper">
 
 <div class="container-fluid">
@@ -37,22 +36,37 @@
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header">
-                Sección Turistas
-                <small>Listado de Turistas</small>
+                Sección Afiliados
+                <small>Listado de Afiliados</small>
             </h1>
             <ol class="breadcrumb">
                 <li>
-                    <i class="fa fa-dashboard"></i>  <a href="{{route('indexPersons')}}">Dashboard</a>
+                    <i class="fa fa-dashboard"></i>  <a href="{{route('afilliate.index')}}">Dashboard</a>
                 </li>
                 <li class="active">
-                    <i class="fa fa-file"></i> Listado de Turistas
+                    <i class="fa fa-file"></i> Listado de Afiliados
                 </li>
             </ol>
 
         </div>
     </div>
     <!-- /.row -->
-        @include('Tourist.partials.tourist')
+    @if(Session::has('message'))
+
+        <div class="alert alert-success">
+          <strong>{{Session::get('message')}}</strong>
+        </div>
+
+    @endif
+
+    <div class="row">
+      <div class="col-md-12">
+          <a class="btn btn-primary btn-lg" href="{{route('tourist.create')}}" ><i class="fas fa-user-plus"></i> Añadir Afiliado</a>
+        <hr>
+      </div>
+    </div>
+
+        @include('Afilliate.partials.afilliateTable')
 </div>
 <!-- /.container-fluid -->
 
