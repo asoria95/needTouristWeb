@@ -23,10 +23,12 @@
            <a href="{{route('role.index')}}"><i class="fab fa-creative-commons-nd"></i> Sección Roles</a>
        </li>
 
+
      </ul>
  </div>
  <!-- /.navbar-collapse  -->
  </nav>
+
 
 <div id="page-wrapper">
 
@@ -59,12 +61,14 @@
 
     @endif
 
+
     <div class="row">
       <div class="col-md-12">
           <a class="btn btn-primary btn-lg" href="{{route('tourist.create')}}" ><i class="fas fa-user-plus"></i> Añadir Afiliado</a>
         <hr>
       </div>
     </div>
+
 
         @include('Afilliate.partials.afilliateTable')
 </div>
