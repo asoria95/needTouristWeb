@@ -11,11 +11,11 @@
  <div class="collapse navbar-collapse navbar-ex1-collapse">
      <ul class="nav navbar-nav side-nav">
        <!-- Menu tourist Section -->
-       <li>
+       <li class="active">
            <a href="{{route('tourist.index')}}"><i class="fa fa-fw fa-users"></i> Sección Usuarios</a>
        </li>
        <!-- Menu afilliate Section -->
-       <li class="active">
+       <li>
            <a href="{{route('afilliate.index')}}"><i class="fas fa-user-tie"></i> Listado de Afiliados</a>
        </li>
        <!-- Menu role Section -->
@@ -37,28 +37,25 @@
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header">
-                Sección Afiliados
-                <small>Datos del afiliado</small>
+                Sección Turistas
+                <small>Listado de Turistas</small>
             </h1>
             <ol class="breadcrumb">
                 <li>
-                    <i class="fa fa-dashboard"></i>  <a href="{{route('afilliate.index')}}">Sección Afiliados</a>
+                    <i class="fa fa-dashboard"></i>  <a href="{{route('indexPersons')}}">Dashboard</a>
                 </li>
                 <li class="active">
-                    <i class="fa fa-file"></i> Datos del afiliado
+                    <i class="fa fa-file"></i> Listado de Turistas
                 </li>
             </ol>
 
         </div>
     </div>
     <!-- /.row -->
-        @include('Afilliate.partials.afilliate')
+        @include('Tourist.partials.tourist')
 </div>
 <!-- /.container-fluid -->
-        <!-- Adjustment -->
-        @include('Afilliate.partials.adjustment')
-          <!-- Adjustment -->
-          @include('Afilliate.partials.adjustment')
+
 </div>
 <!-- /#page-wrapper -->
   </div>

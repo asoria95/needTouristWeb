@@ -4,7 +4,10 @@ namespace App\Http\Controllers\Persons;
 
 use App\Http\Controllers\Controller;
 use App\Models\Persons\Turist;
+use App\Models\Persons\Persons;
+use App\Models\Persons\Phones;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class TuristController extends Controller
 {
@@ -38,12 +41,24 @@ class TuristController extends Controller
      */
     public function store(Request $request)
     {
-      $this->validate($request,[ 'nombre'=>'required', 'email'=>'required']);
+
+      
+      $this->validate($request,[  'nombre'=>'required',
+                                  'email'=>'required',
+                                  'telefono'=>'required',]);
       $data = ['nombre' => $request->input('nombre'), 'email' => $request->input('email')];
       $person = Persons::create($data);
       $data = ['id_turista' =>  $person->id_persona, 'idioma' =>  $request->input('idioma'), 'residencia' => $request->input('residencia')];
       Turist::create($data);
-      return redirect()->route('turist.index')->with('success','Registro creado satisfactoriamente');
+
+      $phone = $request->input('telefono');
+      if( $phone != null){
+        $data = ['id_persona' =>  $person->id_persona, 'telefono' =>  $phone];
+        Phones::create($data);
+      }
+
+      Session::flash('message', 'Registro ingresado Correctamente');
+      return redirect()->route('tourist.index')->with('success','Registro creado satisfactoriamente');
     }
 
     /**
@@ -52,9 +67,10 @@ class TuristController extends Controller
      * @param  \App\Turist  $turist
      * @return \Illuminate\Http\Response
      */
-    public function show(Turist $turist)
+    public function show($id)
     {
-        //
+      $tourist=Turist::find($id);
+      return  view('Tourist.show',compact('tourist'));
     }
 
     /**
@@ -63,9 +79,10 @@ class TuristController extends Controller
      * @param  \App\Turist  $turist
      * @return \Illuminate\Http\Response
      */
-    public function edit(Turist $turist)
+    public function edit($id)
     {
-        //
+      $tourist=Turist::find($id);
+      return view('Tourist.edit',compact('tourist'));
     }
 
     /**
@@ -75,9 +92,14 @@ class TuristController extends Controller
      * @param  \App\Turist  $turist
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Turist $turist)
+    public function update(Request $request, $id)
     {
-        //
+      $this->validate($request,[ 'nombre'=>'required', 'email'=>'required']);
+      $data = ['nombre' => $request->input('nombre'), 'email' => $request->input('email')];
+      Persons::find($id)->update($data);
+      $data = ['idioma' =>  $request->input('idioma'), 'residencia' => $request->input('residencia')];
+      Turist::find($id)->update($data);
+      return redirect()->route('tourist.index')->with('success','Modificado satisfactoriamente');
     }
 
     /**
@@ -86,8 +108,17 @@ class TuristController extends Controller
      * @param  \App\Turist  $turist
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Turist $turist)
+    public function destroy(Turist  $turist)
     {
-        //
+
+    }
+
+    public function delete(Turist  $tourist)
+    {
+
+      //dd($tourist->id_turista);
+      Persons::destroy($tourist->id_turista);
+      Session::flash('message', 'Registro eliminado Correctamente');
+      return redirect()->route('tourist.index')->with('success','Modificado satisfactoriamente');
     }
 }

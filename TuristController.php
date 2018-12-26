@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers\Persons;
 
-use App\Http\Controllers\Controller;
-use App\Models\Persons\Phones;
+use App\Models\Persons\Turist;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Session;
-class PhonesController extends Controller
+
+class TuristController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +14,7 @@ class PhonesController extends Controller
      */
     public function index()
     {
-      $phones=Turist::paginate(20);
-      //return view('Persons.Persons.index',compact('persons'));
-      return view('Phones.phone',compact('tourists'));
+        //
     }
 
     /**
@@ -44,10 +41,10 @@ class PhonesController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Persons\Phones  $phones
+     * @param  \App\Turist  $turist
      * @return \Illuminate\Http\Response
      */
-    public function show(Phones $phones)
+    public function show(Turist $turist)
     {
         //
     }
@@ -55,10 +52,10 @@ class PhonesController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Persons\Phones  $phones
+     * @param  \App\Turist  $turist
      * @return \Illuminate\Http\Response
      */
-    public function edit(Phones $phones)
+    public function edit(Turist $turist)
     {
         //
     }
@@ -67,10 +64,10 @@ class PhonesController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Persons\Phones  $phones
+     * @param  \App\Turist  $turist
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Phones $phones)
+    public function update(Request $request, Turist $turist)
     {
         //
     }
@@ -78,10 +75,10 @@ class PhonesController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Persons\Phones  $phones
+     * @param  \App\Turist  $turist
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Phones $phones)
+    public function destroy(Turist $turist)
     {
         //
     }

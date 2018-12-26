@@ -11,7 +11,7 @@
     <div class="collapse navbar-collapse navbar-ex1-collapse">
         <ul class="nav navbar-nav side-nav">
           <!-- Menu tourist Section -->
-          <li class="active">
+          <li>
               <a href="{{route('tourist.index')}}"><i class="fa fa-fw fa-users"></i> Sección Usuarios</a>
           </li>
           <!-- Menu afilliate Section -->
@@ -21,6 +21,10 @@
           <!-- Menu role Section -->
           <li>
               <a href="{{route('role.index')}}"><i class="fab fa-creative-commons-nd"></i> Sección Roles</a>
+          </li>
+          <!-- Menu packageTourist Section -->
+          <li class="active">
+              <a href="{{route('packageTourist.index')}}"><i class="fab fa-creative-commons-nd"></i> Sección Paquete Turístico</a>
           </li>
 
         </ul>
@@ -37,15 +41,15 @@
     <div class="row">
         <div class="col-lg-6">
             <h1 class="page-header">
-                Sección Turistas
-                <small>Listado de Turistas</small>
+                Sección Paquetes Turísticos
+                <small>Listado de Paquetes Turísticos</small>
             </h1>
             <ol class="breadcrumb">
                 <li>
-                    <i class="fa fa-dashboard"></i>  <a href="{{route('tourist.index')}}">Turistas</a>
+                    <i class="fa fa-dashboard"></i>  <a href="{{route('packageTourist.index')}}">Paquetes Turísticos</a>
                 </li>
                 <li class="active">
-                    <i class="fa fa-file"></i> Listado de Turistas
+                    <i class="fa fa-file"></i> Listado de Paquetes Turísticos
                 </li>
             </ol>
 
@@ -53,7 +57,7 @@
 
     <div class="row">
       <div class="col-md-12">
-          <a class="btn btn-primary btn-lg" href="{{route('tourist.create')}}" ><span class="glyphicon glyphicon-plus-sign"></span> Añadir Usuario</a>
+          <a class="btn btn-primary btn-lg" href="{{route('packageTourist.create')}}" ><span class="glyphicon glyphicon-plus-sign"></span> Añadir Paquete Turístico</a>
         <hr>
       </div>
     </div>
@@ -66,7 +70,7 @@
 
     @endif
 
-        @include('Tourist.partials.touristTable')
+        @include('Package.partials.packageTable')
 </div>
 <!-- /.container-fluid -->
 

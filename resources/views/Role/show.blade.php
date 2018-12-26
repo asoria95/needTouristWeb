@@ -15,11 +15,12 @@
            <a href="{{route('tourist.index')}}"><i class="fa fa-fw fa-users"></i> Sección Usuarios</a>
        </li>
        <!-- Menu afilliate Section -->
-       <li class="active">
-           <a href="{{route('afilliate.index')}}"><i class="fas fa-user-tie"></i> Listado de Afiliados</a>
-       </li>
-       <!-- Menu role Section -->
        <li>
+           <a href="{{route('afilliate.index')}}"><i class="fas fa-user-tie"></i> Sección Afiliados</a>
+       </li>
+
+       <!-- Menu role Section -->
+       <li class="active">
            <a href="{{route('role.index')}}"><i class="fab fa-creative-commons-nd"></i> Sección Roles</a>
        </li>
 
@@ -27,7 +28,6 @@
  </div>
  <!-- /.navbar-collapse  -->
  </nav>
-
 
 <div id="page-wrapper">
 
@@ -37,28 +37,34 @@
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header">
-                Sección Afiliados
-                <small>Datos del afiliado</small>
+                Sección Roles
+                <small>Rol</small>
             </h1>
             <ol class="breadcrumb">
                 <li>
-                    <i class="fa fa-dashboard"></i>  <a href="{{route('afilliate.index')}}">Sección Afiliados</a>
+                    <i class="fa fa-dashboard"></i>  <a href="{{route('role.index')}}">Roles</a>
                 </li>
                 <li class="active">
-                    <i class="fa fa-file"></i> Datos del afiliado
+                    <i class="fa fa-file"></i> Rol: {{$role->nombre}}
                 </li>
             </ol>
 
         </div>
     </div>
     <!-- /.row -->
-        @include('Afilliate.partials.afilliate')
+    @if(Session::has('message'))
+
+        <div class="alert alert-success">
+          <strong>{{Session::get('message')}}</strong>
+        </div>
+
+    @endif
+
+
+        @include('Role.partials.role')
 </div>
 <!-- /.container-fluid -->
-        <!-- Adjustment -->
-        @include('Afilliate.partials.adjustment')
-          <!-- Adjustment -->
-          @include('Afilliate.partials.adjustment')
+
 </div>
 <!-- /#page-wrapper -->
   </div>

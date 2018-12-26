@@ -31,34 +31,34 @@
 
 <div id="page-wrapper">
 
-<div class="container-fluid">
+  <div class="container-fluid">
 
-    <!-- Page Heading -->
-    <div class="row">
-        <div class="col-lg-12">
-            <h1 class="page-header">
-                Sección Afiliados
-                <small>Datos del afiliado</small>
-            </h1>
-            <ol class="breadcrumb">
-                <li>
-                    <i class="fa fa-dashboard"></i>  <a href="{{route('afilliate.index')}}">Sección Afiliados</a>
-                </li>
-                <li class="active">
-                    <i class="fa fa-file"></i> Datos del afiliado
-                </li>
-            </ol>
+      <!-- Page Heading -->
+      <div class="row">
+          <div class="col-lg-6">
+              <h1 class="page-header">
+                  Sección Paquetes Turísticos
+                  <small>Datos del Paquete Turistico</small>
+              </h1>
+              <ol class="breadcrumb">
+                  <li>
+                      <i class="fa fa-dashboard"></i>  <a href="{{route('packageTourist.index')}}">Paquetes Turísticos</a>
+                  </li>
+                  <li class="active">
+                      <i class="fa fa-file"></i> Paquete Turistico
+                  </li>
+              </ol>
 
-        </div>
-    </div>
+      </div>
+
     <!-- /.row -->
-        @include('Afilliate.partials.afilliate')
+          @include('Package.partials.package')
 </div>
 <!-- /.container-fluid -->
         <!-- Adjustment -->
-        @include('Afilliate.partials.adjustment')
+        @include('Package.partials.adjustment')
           <!-- Adjustment -->
-          @include('Afilliate.partials.adjustment')
+          @include('Package.partials.adjustment')
 </div>
 <!-- /#page-wrapper -->
   </div>

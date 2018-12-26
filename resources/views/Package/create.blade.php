@@ -15,12 +15,16 @@
            <a href="{{route('tourist.index')}}"><i class="fa fa-fw fa-users"></i> Sección Usuarios</a>
        </li>
        <!-- Menu afilliate Section -->
-       <li class="active">
+       <li>
            <a href="{{route('afilliate.index')}}"><i class="fas fa-user-tie"></i> Listado de Afiliados</a>
        </li>
        <!-- Menu role Section -->
        <li>
            <a href="{{route('role.index')}}"><i class="fab fa-creative-commons-nd"></i> Sección Roles</a>
+       </li>
+       <!-- Menu packageTourist Section -->
+       <li class="active">
+           <a href="{{route('packageTourist.index')}}"><i class="fab fa-creative-commons-nd"></i> Sección Paquete Turístico</a>
        </li>
 
      </ul>
@@ -38,14 +42,14 @@
         <div class="col-lg-12">
             <h1 class="page-header">
                 Sección Afiliados
-                <small>Añadir un nuevo afiliado</small>
+                <small>Añadir un nuevo paquete turístico</small>
             </h1>
             <ol class="breadcrumb">
                 <li>
-                    <i class="fa fa-dashboard"></i>  <a href="{{route('indexPersons')}}">Dashboard</a>
+                    <i class="fa fa-dashboard"></i>  <a href="{{route('indexPersons')}}">Paquete Turístico</a>
                 </li>
                 <li class="active">
-                    <i class="fa fa-file"></i> Añadir un nuevo turista
+                    <i class="fa fa-file"></i> Añadir un paquete turístico
                 </li>
             </ol>
 
@@ -80,35 +84,27 @@
                     <div class="row">
                         <div class="col-lg-12">
 
-                          <h1>Nuevo turista</h1>
+                          <h1>Nuevo Paquete Turístico</h1>
 
-                          <form method="POST" action="{{ route('afilliate.store') }}"  accept-charset="UTF-8" enctype="multipart/form-data" >
-                            <input type="hidden" name="_token" value="{{ csrf_token() }}">                              <!-- Name -->
+                          <form method="POST" action="{{ route('packageTourist.store') }}"  accept-charset="UTF-8" enctype="multipart/form-data" >
+                            <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                            <!-- descripcion -->
                                 <div class="form-group">
-                                    <label>Nombre </label>
-                                    <input type="text" class="form-control" name="nombre" id="nombre"  placeholder="Nombre del Afiliado">
+                                    <label>Descripción </label>
+                                    <textarea class="form-control" name="descripcion" id="descripcion"  placeholder="Descripción del Paquete Turístico" rows="8" cols="80"></textarea>
                                 </div>
-                              <!-- Email -->
+                              <!-- Itinerario -->
                                 <div class="form-group">
-                                    <label>Correo Electrónico </label>
-                                    <input type="email" class="form-control" name="email" id="email"  placeholder="Email del Afiliado">
+                                    <label>Itinerario </label>
+                                    <input type="file" class="" name="itinerario" id="itinerario"  >
+                                  </br>
+                                    <p class="help-block">Adjuntar el archivo del itinerario del paquete turístico en formato pdf</p>
                                 </div>
-                                <!-- Direccion -->
+                                <!-- Precio -->
                                   <div class="form-group">
-                                      <label>Dirección </label>
-                                      <input type="textarea" class="form-control" name="direccion" id="direccion"  placeholder="Direccion del Afiliado">
+                                      <label>Precio </label>
+                                      <input type="text" class="form-control" name="price" id="price"  placeholder="Precio del Paquete Turístico">
                                   </div>
-
-                                <!-- Ages -->
-                                  @include('Afilliate.partials.ages')
-
-                                  <!-- Curriculum -->
-                                    <div class="form-group">
-                                        <label>Curriculum </label>
-                                        <input type="file" class="" name="curriculum" id="curriculum"  >
-                                      </br>
-                                        <p class="help-block">Adjuntar el archivo del curriculum en formato pdf</p>
-                                    </div>
 
 
                                  <div class="col-xs-12 col-sm-12 col-md-12">
@@ -119,7 +115,7 @@
                                       <button type="reset" class="btn btn-default btn-block">Limpiar</button>
                                   </div>
                                   <div class="col-xs-4 col-sm-4 col-md-4">
-                                      <a href="{{ route('afilliate.index') }}" class="btn btn-info btn-block" >Atrás</a>
+                                      <a href="{{ route('packageTourist.index') }}" class="btn btn-info btn-block" >Atrás</a>
                                   </div>
 
                                 </div>

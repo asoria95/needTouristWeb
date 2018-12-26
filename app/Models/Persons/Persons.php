@@ -34,4 +34,12 @@ class Persons extends Model
   public function administrator(){
     return $this->hasOne(Administrator::class,'id_administrador');
   }
+
+  public function role(){
+    return $this->hasOne(Role::class,'id_rol');
+  }
+
+  public function phones(){
+    return $this->hasMany(Phones::class,'id_persona');
+  }
 }

@@ -20,4 +20,8 @@ class PersonsRole extends Model
   */
 
   //protected $primaryKey = 'id_afiliado';
+
+  public function person(){
+    return $this->belongsTo(Persons::class, 'id_rol');
+  }
 }
