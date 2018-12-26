@@ -23,7 +23,6 @@
            <a href="{{route('role.index')}}"><i class="fab fa-creative-commons-nd"></i> Sección Roles</a>
        </li>
 
-
      </ul>
  </div>
  <!-- /.navbar-collapse  -->
@@ -32,48 +31,34 @@
 
 <div id="page-wrapper">
 
-<div class="container-fluid">
+  <div class="container-fluid">
 
-    <!-- Page Heading -->
-    <div class="row">
-        <div class="col-lg-12">
-            <h1 class="page-header">
-                Sección Afiliados
-                <small>Listado de Afiliados</small>
-            </h1>
-            <ol class="breadcrumb">
-                <li>
-                    <i class="fa fa-dashboard"></i>  <a href="{{route('afilliate.index')}}">Dashboard</a>
-                </li>
-                <li class="active">
-                    <i class="fa fa-file"></i> Listado de Afiliados
-                </li>
-            </ol>
+      <!-- Page Heading -->
+      <div class="row">
+          <div class="col-lg-6">
+              <h1 class="page-header">
+                  Sección Paquetes Turísticos
+                  <small>Datos del Paquete Turistico</small>
+              </h1>
+              <ol class="breadcrumb">
+                  <li>
+                      <i class="fa fa-dashboard"></i>  <a href="{{route('packageTourist.index')}}">Paquetes Turísticos</a>
+                  </li>
+                  <li class="active">
+                      <i class="fa fa-file"></i> Paquete Turistico
+                  </li>
+              </ol>
 
-        </div>
-    </div>
-    <!-- /.row -->
-    @if(Session::has('message'))
-
-        <div class="alert alert-success">
-          <strong>{{Session::get('message')}}</strong>
-        </div>
-
-    @endif
-
-
-    <div class="row">
-      <div class="col-md-12">
-          <a class="btn btn-primary btn-lg" href="{{route('tourist.create')}}" ><i class="fas fa-user-plus"></i> Añadir Afiliado</a>
-        <hr>
       </div>
-    </div>
 
-
-        @include('Afilliate.partials.afilliateTable')
+    <!-- /.row -->
+          @include('Package.partials.package')
 </div>
 <!-- /.container-fluid -->
-
+        <!-- Adjustment -->
+        @include('Package.partials.adjustment')
+          <!-- Adjustment -->
+          @include('Package.partials.adjustment')
 </div>
 <!-- /#page-wrapper -->
   </div>

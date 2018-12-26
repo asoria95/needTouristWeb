@@ -45,3 +45,10 @@ Route::get('/tourist/{tourist}/delete', 'Persons\TuristController@delete');
 Route::resource('role', 'Persons\RoleController');
 Route::get('/role/{role}/delete', 'Persons\RoleController@delete')->name('role.delete');
 
+
+//Rutas del crud de paquetes turisticos de la aplicacion
+
+Route::resource('packageTourist', 'Service\PackageTouristController');
+Route::get('/packageTourist/{packageTourist}/delete', 'Service\PackageTouristController@delete')->name('packageTourist.delete');
+Route::get('/packageTourist/{packageTourist}/download', 'Service\PackageTouristController@downloadItinerary')->name('packageTourist.downloadItinerary');
+=

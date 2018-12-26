@@ -19,6 +19,12 @@ class Phones extends Model
   *
   */
 
-  protected $primaryKey = 'id_persona';
+  protected $primaryKey = ['id_persona','telefono'];
+
+  protected $fillable = ['id_persona','telefono'];
+
+  public function person(){
+    return $this->belongsTo(Persons::class, 'id_persona');
+  }
 
 }

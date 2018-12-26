@@ -1,6 +1,7 @@
 <div class="row">
     <div class="col-lg-12">
 
+
         <h2>Listado de Afiliados</h2>
 
         <div class="table-responsive">
@@ -23,6 +24,7 @@
                         <td>{{$afilliate->direccion}}</td>
                         <td>{{$afilliate->edad}}</td>
                         <td>{{$afilliate->curriculum}}</td>
+
 
                         <td colspan="2"><a class="btn btn-warning btn-xs" href="{{action('Persons\AfilliateController@edit', $afilliate)}}" ><span class="glyphicon glyphicon-pencil"></span></a>
                         <a class="btn btn-danger btn-xs" href="{{action('Persons\AfilliateController@delete', $afilliate)}}" ><span class="glyphicon glyphicon-trash"></span></a>
