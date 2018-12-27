@@ -19,11 +19,11 @@
            <a href="{{route('afilliate.index')}}"><i class="fas fa-user-tie"></i> Listado de Afiliados</a>
        </li>
        <!-- Menu role Section -->
-       <li  class="active">
+       <li>
            <a href="{{route('role.index')}}"><i class="fab fa-creative-commons-nd"></i> Sección Roles</a>
        </li>
        <!-- Menu packageTourist Section -->
-       <li>
+       <li class="active">
            <a href="{{route('packageTourist.index')}}"><i class="fas fa-address-book"></i> Sección Paquete Turístico</a>
        </li>
        <!-- Menu deal Section -->
@@ -34,28 +34,35 @@
  </div>
  <!-- /.navbar-collapse  -->
  </nav>
- 
+
+
 <div id="page-wrapper">
 
 <div class="container-fluid">
 
     <!-- Page Heading -->
     <div class="row">
-        <div class="col-lg-12">
+        <div class="col-lg-6">
             <h1 class="page-header">
-                Sección Roles
-                <small>Rol</small>
+                Sección Paquetes Turísticos
+                <small>Listado de Paquetes Turísticos</small>
             </h1>
             <ol class="breadcrumb">
                 <li>
-                    <i class="fa fa-dashboard"></i>  <a href="{{route('role.index')}}">Roles</a>
+                    <i class="fa fa-dashboard"></i>  <a href="{{route('packageTourist.index')}}">Paquetes Turísticos</a>
                 </li>
                 <li class="active">
-                    <i class="fa fa-file"></i> Rol: {{$role->nombre}}
+                    <i class="fa fa-file"></i> Listado de Paquetes Turísticos
                 </li>
             </ol>
 
-        </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+          <a class="btn btn-primary btn-lg" href="{{route('packageTourist.create')}}" ><i class="fas fa-plus-circle"></i> Añadir Paquete Turístico</a>
+        <hr>
+      </div>
     </div>
     <!-- /.row -->
     @if(Session::has('message'))
@@ -66,8 +73,7 @@
 
     @endif
 
-
-        @include('Role.partials.role')
+        @include('Package.partials.packageTable')
 </div>
 <!-- /.container-fluid -->
 

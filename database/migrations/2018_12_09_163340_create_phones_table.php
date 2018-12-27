@@ -15,8 +15,8 @@ class CreatePhonesTable extends Migration
     {
       Schema::create('telefonos', function (Blueprint $table) {
         $table->bigInteger('id_persona');
-        $table->string('telefono',10);
-        $table->primary('id_persona');
+        $table->string('telefono',25);
+        $table->primary(['id_persona', 'telefono']);
         //$table->rememberToken();
         $table->timestamps();
       });
