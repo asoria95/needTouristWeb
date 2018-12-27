@@ -119,6 +119,7 @@ class PackageTouristController extends Controller
         //
     }
 
+
     public function delete(PackageTourist $packageTourist)
     {
       PackageTourist::destroy($packageTourist->id_paquete); // Elminar el registro de la persona, pero como esta activada la
@@ -142,5 +143,6 @@ class PackageTouristController extends Controller
     public function existItinerary(PackageTourist $packageTourist)
     {
       return (Storage::disk('local')->exists($packageTourist->itinerario));//Preguntar si existe un itinerario de ese paquete turistico
+
     }
 }
