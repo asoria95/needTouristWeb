@@ -19,11 +19,11 @@
            <a href="{{route('afilliate.index')}}"><i class="fas fa-user-tie"></i> Listado de Afiliados</a>
        </li>
        <!-- Menu role Section -->
-       <li  class="active">
+       <li>
            <a href="{{route('role.index')}}"><i class="fab fa-creative-commons-nd"></i> Sección Roles</a>
        </li>
        <!-- Menu packageTourist Section -->
-       <li>
+       <li class="active">
            <a href="{{route('packageTourist.index')}}"><i class="fas fa-address-book"></i> Sección Paquete Turístico</a>
        </li>
        <!-- Menu deal Section -->
@@ -35,6 +35,7 @@
  <!-- /.navbar-collapse  -->
  </nav>
 
+
 <div id="page-wrapper">
 
 <div class="container-fluid">
@@ -43,21 +44,21 @@
   <div class="row">
       <div class="col-lg-12">
           <h1 class="page-header">
-              Sección Roles
-              <small>Rol</small>
+              Sección Paquete turístico
+              <small>Editar paquete turístico</small>
           </h1>
           <ol class="breadcrumb">
               <li>
-                  <i class="fa fa-dashboard"></i>  <a href="{{route('role.index')}}">Roles</a>
+                  <i class="fa fa-dashboard"></i>  <a href="{{route('packageTourist.index')}}">Paquete Turístico</a>
               </li>
               <li class="active">
-                  <i class="fa fa-file"></i> Crear Rol
+                  <i class="fa fa-file"></i> Editar un paquete turístico
               </li>
           </ol>
 
       </div>
   </div>
-    <!-- /.row -->
+  <!-- /.row -->
             <div class="col-md-8 col-md-offset-2">
               @if (count($errors) > 0)
                 <div class="alert alert-danger">
@@ -86,20 +87,19 @@
                     <div class="row">
                         <div class="col-lg-12">
 
-                          <h1>Nuevo Rol</h1>
+                          <h2>Editar Datos del paquete turístico</h2>
 
-                          <form method="POST" action="{{ route('role.update', $role) }}"  role="form">
-                            {{ csrf_field() }}
-                            <input name="_method" type="hidden" value="PATCH">
-                              <!-- Name -->
-                                <div class="form-group">
-                                    <label>Nombre </label>
-                                    <input type="text" class="form-control" name="nombre" id="nombre"  placeholder="Nombre del Turista" value="{{$role->nombre}}">
-                                </div>
-                              <!-- Description -->
+                          <form method="POST" action="{{ route('packageTourist.update',$packageTourist) }}" role="form" >
+                                {{ csrf_field() }}
+                                <input name="_method" type="hidden" value="PATCH">
                                 <div class="form-group">
                                     <label>Descripción </label>
-                                    <textarea name="descripcion" id="descripcion" rows="5" cols="80" class="form-control" placeholder="Descripción del rol" >{{$role->descripcion}}</textarea>
+                                    <input type="text" class="form-control" name="descripcion" id="descripcion"  placeholder="Descripción del paquete turístico" value="{{$packageTourist->descripcion}}">
+                                </div>
+                              <!-- Precio -->
+                                <div class="form-group">
+                                    <label>Precio </label>
+                                    <input type="text" class="form-control" name="precio" id="precio"  placeholder="Precio del paquete turístico" value="{{$packageTourist->price}}">
                                 </div>
 
                                  <div class="col-xs-12 col-sm-12 col-md-12">
@@ -110,7 +110,7 @@
                                       <button type="reset" class="btn btn-default btn-block">Limpiar</button>
                                   </div>
                                   <div class="col-xs-4 col-sm-4 col-md-4">
-                                      <a href="{{ route('role.index') }}" class="btn btn-info btn-block" >Atrás</a>
+                                      <a href="{{ route('packageTourist.index') }}" class="btn btn-info btn-block" >Atrás</a>
                                   </div>
 
                                 </div>
@@ -120,9 +120,18 @@
 
                         </div>
                     </div>
+
+                    <div class="row">
+                      <div class="col-lg-12">
+                        <h1> Archivo de su curriculum</h1>
+                        <a href="{{ route('packageTourist.downloadItinerary',$packageTourist) }}" class="" >Itinerario</a>
+                      </div>
+                    </div>
+
+                    @include('Package.editItinerary')
                     <!-- /.row -->
                     <!-- Adjustment -->
-                     @include('Role.partials.adjustment')
+                     @include('Package.partials.adjustment')
                 </div>
                 <!-- /.container-fluid -->
 

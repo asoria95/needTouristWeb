@@ -51,4 +51,11 @@ Route::get('/role/{role}/delete', 'Persons\RoleController@delete')->name('role.d
 Route::resource('packageTourist', 'Service\PackageTouristController');
 Route::get('/packageTourist/{packageTourist}/delete', 'Service\PackageTouristController@delete')->name('packageTourist.delete');
 Route::get('/packageTourist/{packageTourist}/download', 'Service\PackageTouristController@downloadItinerary')->name('packageTourist.downloadItinerary');
-=
+
+Route::patch('/packageTourist/{packageTourist}/updateFile', 'Service\PackageTouristController@updateFile')->name('packageTourist.updateItinerary');
+
+//Rutas del crud de negocios de la aplicacion
+
+Route::resource('deal', 'Deal\DealController');
+Route::get('/deal/{deal}/delete', 'Deal\DealController@delete')->name('packageTourist.delete');
+

@@ -60,7 +60,6 @@ class TuristController extends Controller
         Phones::create($data);
       }
 
-
       Session::flash('message', 'Registro ingresado Correctamente');
       return redirect()->route('tourist.index')->with('success','Registro creado satisfactoriamente');
     }

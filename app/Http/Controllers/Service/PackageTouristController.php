@@ -72,7 +72,7 @@ class PackageTouristController extends Controller
      */
     public function edit(PackageTourist $packageTourist)
     {
-        //
+        return view('Package.edit',compact('packageTourist'));// Pasar los datos del afiliado al formulario de edicion
     }
 
     /**
@@ -84,9 +84,30 @@ class PackageTouristController extends Controller
      */
     public function update(Request $request, PackageTourist $packageTourist)
     {
-        //
+      $this->validate($request,['descripcion'=>'required',
+                                'precio'=>'required']); // Validar los datos enviados por el formulario
+      $data = ['descripcion' => $request->input('descripcion'), 'price' => $request->input('precio')]; // Datos a almacenarce en la tabla paquetesTuristicos
+      $packageTourist->update($data); // Editar los datos de la tabla afiliados
+      Session::flash('message', 'Modificación correcta');
+      return redirect()->route('packageTourist.index')->with('success','Registro creado satisfactoriamente');
     }
 
+    public function updateFile(Request $request, PackageTourist $packageTourist)
+    {
+      $this->validate($request,['itinerario' => 'required']); // validar que envie un archivo
+      $file = $request->itinerario; // Se toma el archivo
+      if(self::existItinerary($packageTourist)){ // Si existe ya un archivo ingresado se elimina el anterior
+        self::deleteItinerary($packageTourist); // Eliminar archivo
+      }
+        $path =   $request->itinerario->store('paquetesTuristicos');// Guardar el archivo y obtener la ruta donde se almaceno
+        $packageTourist->update(['itinerario' => $path]); // Modificar la ruta en la base de datos
+      Session::flash('message', 'El archivo se modifico correctamente');// Mensaje de confirmacion de modificacion
+      return redirect()->route('packageTourist.index')->with('success','El archivo se modifico correctamente');
+    }
+
+    public function deleteItinerary(PackageTourist $packageTourist){
+      Storage::disk('local')->delete($packageTourist->itinerario);//Eliminar el archivo
+    }
     /**
      * Remove the specified resource from storage.
      *
@@ -98,20 +119,30 @@ class PackageTouristController extends Controller
         //
     }
 
+
+    public function delete(PackageTourist $packageTourist)
+    {
+      PackageTourist::destroy($packageTourist->id_paquete); // Elminar el registro de la persona, pero como esta activada la
+      //elminacion en cascada en la relacion se elimina de todas las tablas
+      Session::flash('message', 'Registro eliminado correctamente'); // Mensaje de exito
+      return redirect()->route('packageTourist.index')->with('success','Modificado satisfactoriamente');
+    }
+
     public function downloadItinerary(PackageTourist $packageTourist)
     {
-      dd(self::existItinerary($packageTourist));
-/*
+
+
       if(self::existItinerary($packageTourist)){ // Verificar si es que existe el archivo a descargar
-        $file = Storage::disk('paquetesTuristicos')->get($packageTourist->itinerario); // Obtener el archvio
-        return Storage::disk('paquetesTuristicos')->download($packageTourist->itinerario); // Ordenar la descarga al navegador
+        $file = Storage::disk('local')->get($packageTourist->itinerario); // Obtener el archvio
+        return Storage::disk('local')->download($packageTourist->itinerario); // Ordenar la descarga al navegador
       }
       return "No existe el archivo";
-      */
+
     }
 
     public function existItinerary(PackageTourist $packageTourist)
     {
-      return (Storage::disk('paquetesTuristicos')->exists($packageTourist->itinerario));//Preguntar si existe un itinerario de ese paquete turistico
+      return (Storage::disk('local')->exists($packageTourist->itinerario));//Preguntar si existe un itinerario de ese paquete turistico
+
     }
 }
