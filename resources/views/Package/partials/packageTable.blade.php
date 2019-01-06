@@ -15,7 +15,7 @@
                      <tr>
                      @forelse ($packageTourists as $packageTourist)
                      <td>{{$packageTourist->descripcion}}</td>
-                     <td>{{$packageTourist->itinerario}}</td>
+                     <td> <a href="{{route('packageTourist.downloadItinerary',$packageTourist)}}"> {{$packageTourist->itinerario}} </a></td>
                      <td>{{$packageTourist->price}}</td>
                      <td><a class="btn btn-warning btn-xs" href="{{action('Service\PackageTouristController@edit', $packageTourist)}}" ><span class="glyphicon glyphicon-pencil"></span></a>
                      <a class="btn btn-danger btn-xs" href="{{action('Service\PackageTouristController@delete', $packageTourist)}}" ><span class="glyphicon glyphicon-trash"></span></a>

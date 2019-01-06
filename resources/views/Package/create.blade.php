@@ -24,9 +24,12 @@
        </li>
        <!-- Menu packageTourist Section -->
        <li class="active">
-           <a href="{{route('packageTourist.index')}}"><i class="fab fa-creative-commons-nd"></i> Sección Paquete Turístico</a>
+           <a href="{{route('packageTourist.index')}}"><i class="fas fa-address-book"></i> Sección Paquete Turístico</a>
        </li>
-
+       <!-- Menu deal Section -->
+       <li>
+           <a href="{{route('deal.index')}}"><i class="fas fa-store"></i> Sección Negocios</a>
+       </li>
      </ul>
  </div>
  <!-- /.navbar-collapse  -->
@@ -46,7 +49,7 @@
             </h1>
             <ol class="breadcrumb">
                 <li>
-                    <i class="fa fa-dashboard"></i>  <a href="{{route('indexPersons')}}">Paquete Turístico</a>
+                    <i class="fa fa-dashboard"></i>  <a href="{{route('packageTourist.index')}}">Paquete Turístico</a>
                 </li>
                 <li class="active">
                     <i class="fa fa-file"></i> Añadir un paquete turístico

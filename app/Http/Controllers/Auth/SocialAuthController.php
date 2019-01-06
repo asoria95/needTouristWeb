@@ -22,8 +22,10 @@ class SocialAuthController extends Controller
       {
           // Obtenemos los datos del usuario
           $social_user = Socialite::driver($provider)->stateless()->user(); // Cambiar esta linea de codigo del tutorial con la finalidad
+
       //de no afectar la redireccion
           // Comprobamos si el usuario ya existe
+
           if ($user = User::where('email', $social_user->email)->first()) {
               return $this->authAndRedirect($user); // Login y redirección
           } else {
@@ -33,9 +35,10 @@ class SocialAuthController extends Controller
                   'email' => $social_user->email,
                   'avatar' => $social_user->avatar,
               ]);
-
               return $this->authAndRedirect($user); // Login y redirección
+
           }
+
       }
 
       // Login y redirección

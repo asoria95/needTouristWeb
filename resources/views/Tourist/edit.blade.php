@@ -18,10 +18,17 @@
        <li>
            <a href="{{route('afilliate.index')}}"><i class="fas fa-user-tie"></i> Listado de Afiliados</a>
        </li>
-
        <!-- Menu role Section -->
        <li>
            <a href="{{route('role.index')}}"><i class="fab fa-creative-commons-nd"></i> Sección Roles</a>
+       </li>
+       <!-- Menu packageTourist Section -->
+       <li>
+           <a href="{{route('packageTourist.index')}}"><i class="fas fa-address-book"></i> Sección Paquete Turístico</a>
+       </li>
+       <!-- Menu deal Section -->
+       <li>
+           <a href="{{route('deal.index')}}"><i class="fas fa-store"></i> Sección Negocios</a>
        </li>
      </ul>
  </div>

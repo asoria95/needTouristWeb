@@ -12,9 +12,10 @@ class administratorSeeder extends Seeder
     public function run()
     {
       for ($i=1; $i <25  ; $i++) {
-        factory(App\Models\Persons\Administrator::class)->create([
-          'id_administrador' => $i
-        ]);
-      }
+      factory(App\Models\Persons\Administrator::class)->create([
+        'id_administrador' => $i
+      ]);
+    }
+
     }
 }
