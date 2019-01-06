@@ -90,6 +90,7 @@ class PackageTouristController extends Controller
       $packageTourist->update($data); // Editar los datos de la tabla afiliados
       Session::flash('message', 'Modificación correcta');
       return redirect()->route('packageTourist.index')->with('success','Registro creado satisfactoriamente');
+
     }
 
     public function updateFile(Request $request, PackageTourist $packageTourist)
@@ -105,6 +106,7 @@ class PackageTouristController extends Controller
       return redirect()->route('packageTourist.index')->with('success','El archivo se modifico correctamente');
     }
 
+
     public function deleteItinerary(PackageTourist $packageTourist){
       Storage::disk('local')->delete($packageTourist->itinerario);//Eliminar el archivo
     }
@@ -118,6 +120,9 @@ class PackageTouristController extends Controller
     {
         //
     }
+
+
+
 
     public function delete(PackageTourist $packageTourist)
     {
@@ -142,5 +147,8 @@ class PackageTouristController extends Controller
     public function existItinerary(PackageTourist $packageTourist)
     {
       return (Storage::disk('local')->exists($packageTourist->itinerario));//Preguntar si existe un itinerario de ese paquete turistico
+
+
+
     }
 }

@@ -1,6 +1,7 @@
 <!-- Countries -->
       <div class="form-group">
             <select name="residencia" id="residencia" class="form-control">
+
                 <option value="Afganistán">Afganistán</option>
                 <option value="Albania">Albania</option>
                 <option value="Alemania">Alemania</option>

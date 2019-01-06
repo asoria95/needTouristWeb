@@ -18,9 +18,12 @@
                         <td>{{$tourist->person->email}}</td>
                         <td>{{$tourist->idioma}}</td>
                         <td>{{$tourist->residencia}}</td>
+
+
                         <td><a class="btn btn-warning btn-xs" href="{{action('Persons\TuristController@edit', $tourist->id_turista)}}" ><span class="glyphicon glyphicon-pencil"></span></a>
                         <a class="btn btn-danger btn-xs" href="{{action('Persons\TuristController@delete', $tourist)}}" ><span class="glyphicon glyphicon-trash"></span></a>
                         <a class="btn btn-success btn-xs" href="{{route( ('tourist.show') , $tourist->id_turista)}}" ><span class="glyphicon glyphicon-eye-open"></span></a></td>
+
                       </tr>
 
                      @empty

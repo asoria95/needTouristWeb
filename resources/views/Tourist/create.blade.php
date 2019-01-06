@@ -80,6 +80,27 @@
 
 
 
+            <div class="col-md-8 col-md-offset-2">
+              @if (count($errors) > 0)
+                <div class="alert alert-danger">
+                  <strong>Error!</strong> Revise los campos obligatorios.<br><br>
+                  <ul>
+                    @foreach ($errors->all() as $error)
+                      <li>{{ $error }}</li>
+                    @endforeach
+                  </ul>
+                </div>
+              @endif
+
+            </div>
+
+            @if(Session::has('success'))
+              <div class="alert alert-info">
+                {{Session::get('success')}}
+              </div>
+            @endif
+
+
 
     <div id="page-wrapper">
                 <div class="container-fluid">
@@ -90,6 +111,7 @@
 
                           <form method="POST" action="{{ route('tourist.store') }}"  role="form">
                 							{{ csrf_field() }}
+
                               <!-- Name -->
                                 <div class="form-group">
                                     <label>Nombre </label>
@@ -115,11 +137,13 @@
 
                                  <div class="col-xs-12 col-sm-12 col-md-12">
                                    <div class="col-xs-4 col-sm-4 col-md-4">
+
                                       <button type="submit" class="btn btn-success btn-block">Guardar</button>
                                   </div>
                                   <div class="col-xs-4 col-sm-4 col-md-4">
                                       <button type="reset" class="btn btn-default btn-block">Limpiar</button>
                                   </div>
+
                                   <div class="col-xs-4 col-sm-4 col-md-4">
                                       <a href="{{ route('tourist.index') }}" class="btn btn-info btn-block" >Atrás</a>
                                   </div>

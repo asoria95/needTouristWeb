@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Persons;
 use App\Http\Controllers\Controller;
 use App\Models\Persons\Turist;
 use App\Models\Persons\Persons;
+
 use App\Models\Persons\Phones;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
@@ -50,6 +52,7 @@ class TuristController extends Controller
       $person = Persons::create($data);
       $data = ['id_turista' =>  $person->id_persona, 'idioma' =>  $request->input('idioma'), 'residencia' => $request->input('residencia')];
       Turist::create($data);
+
 
       $phone = $request->input('telefono');
       if( $phone != null){

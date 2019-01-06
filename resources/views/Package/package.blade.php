@@ -6,6 +6,7 @@
 
  @include('layouts.banner')
 
+
  <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
 
  <div class="collapse navbar-collapse navbar-ex1-collapse">
@@ -36,6 +37,7 @@
  </nav>
 
 
+
 <div id="page-wrapper">
 
 <div class="container-fluid">
@@ -60,7 +62,9 @@
 
     <div class="row">
       <div class="col-md-12">
+
           <a class="btn btn-primary btn-lg" href="{{route('packageTourist.create')}}" ><i class="fas fa-plus-circle"></i> Añadir Paquete Turístico</a>
+
         <hr>
       </div>
     </div>
