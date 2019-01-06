@@ -16,6 +16,7 @@
                      @forelse ($packageTourists as $packageTourist)
                      <td>{{$packageTourist->descripcion}}</td>
 
+
                      <td> <a href="{{route('packageTourist.downloadItinerary',$packageTourist)}}"> {{$packageTourist->itinerario}} </a></td>
 
                      <td>{{$packageTourist->price}}</td>

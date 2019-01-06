@@ -31,7 +31,6 @@
        <li>
            <a href="{{route('deal.index')}}"><i class="fas fa-store"></i> Sección Negocios</a>
        </li>
-
      </ul>
  </div>
  <!-- /.navbar-collapse  -->
@@ -51,6 +50,7 @@
             </h1>
             <ol class="breadcrumb">
                 <li>
+
 
                     <i class="fa fa-dashboard"></i>  <a href="{{route('packageTourist.index')}}">Paquete Turístico</a>
 

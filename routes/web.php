@@ -13,7 +13,7 @@
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('index');
 
 
 Route::get('/persons','Persons\PersonsController@index')->name('indexPersons');
