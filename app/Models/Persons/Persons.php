@@ -43,5 +43,4 @@ class Persons extends Model
   public function phones(){
     return $this->hasMany(Phones::class,'id_persona');
   }
-
 }

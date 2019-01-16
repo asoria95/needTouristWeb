@@ -3,7 +3,7 @@
 namespace App\Models\Persons;
 
 use Illuminate\Database\Eloquent\Model;
-
+use App\User;
 class Role extends Model
 {
   /**
@@ -22,4 +22,8 @@ class Role extends Model
   protected $primaryKey = 'id_rol';
 
   protected $fillable = ['id_rol','nombre', 'descripcion'];
+
+  public function userRole(){
+    return $this->hasOne(usersRole::class,'id');
+  }
 }

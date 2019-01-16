@@ -18,6 +18,12 @@ class Service extends Model
   *
   *
   */
+//protected $primaryKey = 'id_servicio';
+  protected $primaryKey = 'id_paquete';
 
-  protected $primaryKey = 'id_servicio'; 
+
+  public function package(){
+    return $this->hasOne(PackageTourist::class,'id_paquete');
+  }
+
 }

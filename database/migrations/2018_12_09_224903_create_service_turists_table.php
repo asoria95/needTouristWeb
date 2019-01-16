@@ -16,8 +16,10 @@ class CreateServiceTuristsTable extends Migration
       Schema::create('servicio_turista', function (Blueprint $table) {
         $table->bigInteger('id_servicio');
         $table->bigInteger('id_turista');
-        $table->bigInteger('id_observacion');
-        $table->primary(['id_servicio', 'id_turista','id_observacion']);
+        $table->date('fecha');
+        $table->bigInteger('id_observacion')->nullable();
+        $table->integer('cantidad');
+        $table->primary(['id_servicio', 'id_turista','fecha']);
         //$table->rememberToken();
         $table->timestamps();
       });

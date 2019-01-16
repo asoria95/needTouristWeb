@@ -15,5 +15,10 @@ class DatabaseSeeder extends Seeder
       $this->call(afilliateSeeder::class);
       $this->call(administratorSeeder::class);
       $this->call(turistSeeder::class);
+      $this->call(roleSeeder::class);
+      $this->call(userSeeder::class);
+      $this->call(userRoleSeeder::class);
+      $this->call(packageTouristSeeder::class);
+      $this->call(serviceSeeder::class);
     }
 }

@@ -18,6 +18,10 @@ class ServiceTurist extends Model
   *
   *
   */
+  protected $primaryKey = 'id_servicio';
+
+
+  protected $fillable = ['id_servicio','id_turista', 'fecha','cantidad'];
 
   //protected $primaryKey = 'id_servicio';
 }

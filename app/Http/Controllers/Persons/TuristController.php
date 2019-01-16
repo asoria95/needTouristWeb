@@ -5,12 +5,12 @@ namespace App\Http\Controllers\Persons;
 use App\Http\Controllers\Controller;
 use App\Models\Persons\Turist;
 use App\Models\Persons\Persons;
-
 use App\Models\Persons\Phones;
-
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
-
+use App\Models\Service\Service;
+use App\Models\Service\ServiceTurist;
+use App\Models\Service\PackageTourist;
 class TuristController extends Controller
 {
     /**
@@ -20,9 +20,11 @@ class TuristController extends Controller
      */
     public function index()
     {
-      $tourists=Turist::paginate(20);
+      //Auth::user()->email;
+      //$tourists=Turist::paginate(20);
       //return view('Persons.Persons.index',compact('persons'));
-      return view('Tourist.tourist',compact('tourists'));
+      //return view('Tourist.tourist',compact('tourists'));
+      return view('Tourist.home');
     }
 
     /**
@@ -44,7 +46,6 @@ class TuristController extends Controller
     public function store(Request $request)
     {
 
-      
       $this->validate($request,[  'nombre'=>'required',
                                   'email'=>'required',
                                   'telefono'=>'required',]);
@@ -52,7 +53,6 @@ class TuristController extends Controller
       $person = Persons::create($data);
       $data = ['id_turista' =>  $person->id_persona, 'idioma' =>  $request->input('idioma'), 'residencia' => $request->input('residencia')];
       Turist::create($data);
-
 
       $phone = $request->input('telefono');
       if( $phone != null){
@@ -123,5 +123,73 @@ class TuristController extends Controller
       Persons::destroy($tourist->id_turista);
       Session::flash('message', 'Registro eliminado Correctamente');
       return redirect()->route('tourist.index')->with('success','Modificado satisfactoriamente');
+    }
+
+    public function requestTouristPackage($id)
+    {
+      $tourist = Turist::find($id);
+      $services =Service::paginate(20);
+      //$packageTourist = PackageTourist::find()
+      return view('Tourist.requestPackageTourist',compact('tourist','services'));
+    }
+
+    public function ajaxRequest(Request $request)
+      {
+        $idServicio = $request->input('idServicio');
+        $service = Service::where('id_servicio',$idServicio)->first();
+
+        return response()->json(['servicio' => $service,'paquete'=> $service->package]);
+        //return response()->json(['datos' => $input]);
+    }
+
+    public function solicitarPaquete(Request $request)
+    {
+      $response = ['message' => 'Usted ya cuenta con este paquete ', 'messageType' => 'error'];
+
+      $data = ['cantidad' => $request->input('numero'),
+               'fecha' =>    $request->input('fecha'),
+               'id_servicio' => $request->input('idServicio'),
+               'id_turista' => $request->input('idTurista')
+      ]; // Datos para realizar el ingreso
+     $serviceTourist = ServiceTurist::where([
+        'id_servicio' => $request->input('idServicio'),
+        'id_turista' => $request->input('idTurista')])->first(); // En caso de ya haber contratado ese paquete
+     if($serviceTourist == null){
+       $serviceTourist = ServiceTurist::create($data);
+       $response = ['message' => 'Paquete solicitado Correctamente', 'messageType' => 'succes'];
+     }
+      //return response($data);
+      return response()->json($response);
+      //return redirect('Tourist.requestPackageTourist')
+        //->with('message', 'New customer added successfully.')
+        //->with('message-type', 'success');
+    }
+
+
+    public function serviciosDeUnTurista(Request $request)
+    {
+      $data = array();
+      $servicesTourist = ServiceTurist::where('id_turista',$request->input('idTurista'))->orderBy('fecha', 'desc')->get();
+
+      foreach ($servicesTourist as $serviceTourist) {
+        $service = Service::find($serviceTourist->id_servicio);
+        $package = PackageTourist::find($service->id_paquete);
+        $datos = [
+          'servicioTurista' => $serviceTourist,
+          'servicio' => $service,
+          'paquete' => $package
+        ];
+
+        array_push($data,$datos);
+      }
+
+
+
+      $servicesTourist->toJson();
+      return response()->json($data);
+    }
+    public function home()
+    {
+      // code...
     }
 }

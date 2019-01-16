@@ -1,5 +1,12 @@
-@extends('layouts.master')
-@section('content')
+
+@include('layouts.head')
+
+<title>Seccion de paquetes turísticos </title>
+
+@include('layouts.css')
+
+<body>
+
 <div id="wrapper">
 <!-- Navigation -->
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -15,16 +22,12 @@
            <a href="{{route('tourist.index')}}"><i class="fa fa-fw fa-users"></i> Sección Usuarios</a>
        </li>
        <!-- Menu afilliate Section -->
-
-       <li>
-
            <a href="{{route('afilliate.index')}}"><i class="fas fa-user-tie"></i> Listado de Afiliados</a>
        </li>
        <!-- Menu role Section -->
        <li>
            <a href="{{route('role.index')}}"><i class="fab fa-creative-commons-nd"></i> Sección Roles</a>
        </li>
-
        <!-- Menu packageTourist Section -->
        <li class="active">
            <a href="{{route('packageTourist.index')}}"><i class="fas fa-address-book"></i> Sección Paquete Turístico</a>
@@ -33,7 +36,6 @@
        <li>
            <a href="{{route('deal.index')}}"><i class="fas fa-store"></i> Sección Negocios</a>
        </li>
-
      </ul>
  </div>
  <!-- /.navbar-collapse  -->
@@ -74,3 +76,6 @@
 <!-- /#page-wrapper -->
   </div>
 <!-- /#wrapper -->
+
+@include('layouts.final')
+

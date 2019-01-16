@@ -1,5 +1,12 @@
-@extends('layouts.master')
-@section('content')
+
+@include('layouts.head')
+
+<title>Seccion de paquetes turísticos </title>
+
+@include('layouts.css')
+
+<body>
+
 <div id="wrapper">
 <!-- Navigation -->
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -50,7 +57,6 @@
             </h1>
             <ol class="breadcrumb">
                 <li>
-
 
                     <i class="fa fa-dashboard"></i>  <a href="{{route('packageTourist.index')}}">Paquete Turístico</a>
 
@@ -142,3 +148,6 @@
 
         </div>
         <!-- /#wrapper -->
+
+@include('layouts.final')
+

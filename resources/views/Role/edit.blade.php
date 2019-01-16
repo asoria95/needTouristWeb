@@ -1,5 +1,10 @@
-@extends('layouts.master')
-@section('content')
+@include('layouts.head')
+
+<title>Seccion de Roles </title>
+
+@include('layouts.css')
+
+<body>
 <div id="wrapper">
 <!-- Navigation -->
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -131,3 +136,4 @@
 
         </div>
         <!-- /#wrapper -->
+@include('layouts.final')

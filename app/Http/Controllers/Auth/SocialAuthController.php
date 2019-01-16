@@ -8,6 +8,7 @@ use App\User;
 use Socialite;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Persons\Persons;
 
 class SocialAuthController extends Controller
 {
@@ -30,6 +31,8 @@ class SocialAuthController extends Controller
               return $this->authAndRedirect($user); // Login y redirección
           } else {
               // En caso de que no exista creamos un nuevo usuario con sus datos.
+              Persons::create([   'nombre' => $social_user->name,
+                                  'email' => $social_user->email]);
               $user = User::create([
                   'name' => $social_user->name,
                   'email' => $social_user->email,

@@ -11,7 +11,6 @@
 
  @include('layouts.banner')
  @include('Tourist.partials.menuTourist')
-
 <div id="page-wrapper">
 
 <div class="container-fluid">
@@ -52,11 +51,21 @@
 
     @endif
 
-        @include('Tourist.partials.touristTable')
+    <div class="" id="Code" style="visibility: hidden;">
+      {{ Auth::user()->id }}
+    </div>
 
-        <div class="row">
-          <h3>  </h3>
-        </div>
+    <div class="row col-md-12" id="Paquetes">
+
+
+      </div>
+
+    </div>
+
+    <!-- Adjustment -->
+     @include('Tourist.partials.adjustment')
+     <!-- Adjustment -->
+      @include('Tourist.partials.adjustment')
 </div>
 <!-- /.container-fluid -->
 
@@ -65,4 +74,19 @@
   </div>
 <!-- /#wrapper -->
 
-@include('layouts.partials.finalTourist')
+<script src="{{asset('js/jquery.js')}}"></script>
+
+    <!-- Bootstrap Core JavaScript
+js/bootstrap.min.js
+  -->
+    <script src="{{asset('js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('js/tourist.js')}}"></script>
+    <script type="text/javascript">
+    $( document ).ready(function() {
+      //alert();
+      serviciosDeUnTurista($('#Code').text());
+    });
+    </script>
+</body>
+
+</html>

@@ -1,5 +1,8 @@
-@extends('layouts.master')
-@section('content')
+@include('layouts.head')
+
+<title>Seccion de afiliados </title>
+
+@include('layouts.css')
 <div id="wrapper">
 <!-- Navigation -->
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -157,3 +160,5 @@
 
         </div>
         <!-- /#wrapper -->
+
+        @include('layouts.partials.finalAfilliate')

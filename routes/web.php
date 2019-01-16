@@ -18,7 +18,13 @@ Route::get('/', function () {
 
 Route::get('/persons','Persons\PersonsController@index')->name('indexPersons');
 
+///////////////////////////// Authentication ///////////////////////
+
 Auth::routes();
+
+/////////////////////////////////////////////////////////////////////
+
+
 
 Route::get('auth/{provider}', 'Auth\SocialAuthController@redirectToProvider')->name('social.auth');
 Route::get('auth/{provider}/callback', 'Auth\SocialAuthController@handleProviderCallback');
@@ -38,7 +44,13 @@ Route::get('/afilliate/{afilliate}/existCurriculum', 'Persons\AfilliateControlle
 
 //Rutas del crud de turistas
 Route::resource('tourist', 'Persons\TuristController');
+Route::get('tourist/home','Persons\TuristController@home');
+Route::get('tourist/{tourist}/packages','Persons\TuristController@requestTouristPackage')->name('tourist.requestTouristPackage');
 Route::get('/tourist/{tourist}/delete', 'Persons\TuristController@delete');
+Route::post('/tourist/{tourist}/addpackages', 'Persons\TuristController@addRequestPackageTourist')->name('tourist.addRequestPackageTourist');
+Route::post('ajaxRequest', 'Persons\TuristController@ajaxRequest');
+Route::post('solicitarPaqueteTurista', 'Persons\TuristController@solicitarPaquete');
+Route::post('serviciosDeUnTurista','Persons\TuristController@serviciosDeUnTurista');
 
 
 //Rutas del crud de roles de la aplicacion
