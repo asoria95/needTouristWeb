@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Persons;
 
+use App\Http\Controllers\Controller;
 use App\Models\Persons\Phones;
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Session;
 class PhonesController extends Controller
 {
     /**
@@ -14,7 +15,9 @@ class PhonesController extends Controller
      */
     public function index()
     {
-        //
+      $phones=Turist::paginate(20);
+      //return view('Persons.Persons.index',compact('persons'));
+      return view('Phones.phone',compact('tourists'));
     }
 
     /**

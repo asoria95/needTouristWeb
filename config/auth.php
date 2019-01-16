@@ -45,6 +45,21 @@ return [
             'driver' => 'token',
             'provider' => 'users',
         ],
+
+        'admins' => [
+            'driver' => 'session',
+            'provider' => 'users',
+        ],
+
+        'tourist' => [
+            'driver' => 'session',
+            'provider' => 'tourist',
+        ],
+
+        'afilliates' => [
+            'driver' => 'session',
+            'provider' => 'afilliates',
+        ],
     ],
 
     /*
@@ -70,6 +85,18 @@ return [
             'model' => App\User::class,
         ],
 
+        'admins' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Persons\Administrator::class,
+        ],
+        'tourist' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Persons\Turist::class,
+        ],
+        'afilliates' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Persons\Afilliate::class,
+        ],
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',

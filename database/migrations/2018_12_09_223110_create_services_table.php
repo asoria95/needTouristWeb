@@ -17,7 +17,8 @@ class CreateServicesTable extends Migration
           $table->increments('id_servicio');
           $table->bigInteger('id_afiliado');
           $table->bigInteger('id_paquete');
-          $table->date('fecha');
+          //$table->date('fecha');
+          $table->string('estado');
           //$table->rememberToken();
           $table->timestamps();
       });

@@ -1,34 +1,16 @@
-@extends('layouts.master')
-@section('content')
+@include('layouts.head')
+
+<title>Seccion de turistas </title>
+
+@include('layouts.css')
+
+<body>
 <div id="wrapper">
 <!-- Navigation -->
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 
  @include('layouts.banner')
-
-    <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
-
-    <div class="collapse navbar-collapse navbar-ex1-collapse">
-        <ul class="nav navbar-nav side-nav">
-          <!-- Menu tourist Section -->
-          <li class="active">
-              <a href="{{route('tourist.index')}}"><i class="fa fa-fw fa-users"></i> Sección Usuarios</a>
-          </li>
-          <!-- Menu afilliate Section -->
-          <li>
-              <a href="{{route('afilliate.index')}}"><i class="fas fa-user-tie"></i> Listado de Afiliados</a>
-          </li>
-          <!-- Menu role Section -->
-          <li>
-              <a href="{{route('role.index')}}"><i class="fab fa-creative-commons-nd"></i> Sección Roles</a>
-          </li>
-
-        </ul>
-    </div>
-    <!-- /.navbar-collapse  -->
-    </nav>
-
-
+ @include('Tourist.partials.menuTourist')
 <div id="page-wrapper">
 
 <div class="container-fluid">
@@ -52,10 +34,13 @@
     </div>
 
     <div class="row">
-      <div class="col-md-12">
+      <div class="col-md-6">
           <a class="btn btn-primary btn-lg" href="{{route('tourist.create')}}" ><span class="glyphicon glyphicon-plus-sign"></span> Añadir Usuario</a>
-        <hr>
       </div>
+      <div class="col-md-6">
+          <a class="btn btn-primary btn-lg" href="{{route('tourist.requestTouristPackage', Auth::user()->id)}}" ><span class="glyphicon glyphicon-plus-sign"></span> Solicitar Paquete Turistico</a>
+      </div>
+      <hr>
     </div>
     <!-- /.row -->
     @if(Session::has('message'))
@@ -67,6 +52,10 @@
     @endif
 
         @include('Tourist.partials.touristTable')
+
+        <div class="row">
+          <h3>  </h3>
+        </div>
 </div>
 <!-- /.container-fluid -->
 
@@ -74,3 +63,5 @@
 <!-- /#page-wrapper -->
   </div>
 <!-- /#wrapper -->
+
+@include('layouts.partials.finalTourist')

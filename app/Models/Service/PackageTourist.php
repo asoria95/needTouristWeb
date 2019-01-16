@@ -20,4 +20,11 @@ protected $table = 'paquete_turistico';
 */
 
 protected $primaryKey = 'id_paquete';
+
+protected $fillable = ['id_paquete','descripcion', 'itinerario','price'];
+
+  public function service(){
+    return $this->belongsTo(Service::class,'id_paquete');
+  }
+
 }

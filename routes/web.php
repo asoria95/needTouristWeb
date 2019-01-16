@@ -13,12 +13,18 @@
 
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('index');
 
 
 Route::get('/persons','Persons\PersonsController@index')->name('indexPersons');
 
+///////////////////////////// Authentication ///////////////////////
+
 Auth::routes();
+
+/////////////////////////////////////////////////////////////////////
+
+
 
 Route::get('auth/{provider}', 'Auth\SocialAuthController@redirectToProvider')->name('social.auth');
 Route::get('auth/{provider}/callback', 'Auth\SocialAuthController@handleProviderCallback');
@@ -38,8 +44,26 @@ Route::get('/afilliate/{afilliate}/existCurriculum', 'Persons\AfilliateControlle
 
 //Rutas del crud de turistas
 Route::resource('tourist', 'Persons\TuristController');
+Route::get('tourist/home','Persons\TuristController@home');
+Route::get('tourist/{tourist}/packages','Persons\TuristController@requestTouristPackage')->name('tourist.requestTouristPackage');
 Route::get('/tourist/{tourist}/delete', 'Persons\TuristController@delete');
+Route::post('/tourist/{tourist}/addpackages', 'Persons\TuristController@addRequestPackageTourist')->name('tourist.addRequestPackageTourist');
+Route::post('ajaxRequest', 'Persons\TuristController@ajaxRequest');
+Route::post('solicitarPaqueteTurista', 'Persons\TuristController@solicitarPaquete');
+Route::post('serviciosDeUnTurista','Persons\TuristController@serviciosDeUnTurista');
 
 //Rutas del crud de roles de la aplicacion
 Route::resource('role', 'Persons\RoleController');
 Route::get('/role/{role}/delete', 'Persons\RoleController@delete')->name('role.delete');
+
+//Rutas del crud de paquetes turisticos de la aplicacion
+
+Route::resource('packageTourist', 'Service\PackageTouristController');
+Route::get('/packageTourist/{packageTourist}/delete', 'Service\PackageTouristController@delete')->name('packageTourist.delete');
+Route::get('/packageTourist/{packageTourist}/download', 'Service\PackageTouristController@downloadItinerary')->name('packageTourist.downloadItinerary');
+Route::patch('/packageTourist/{packageTourist}/updateFile', 'Service\PackageTouristController@updateFile')->name('packageTourist.updateItinerary');
+
+//Rutas del crud de negocios de la aplicacion
+
+Route::resource('deal', 'Deal\DealController');
+Route::get('/deal/{deal}/delete', 'Deal\DealController@delete')->name('packageTourist.delete');

@@ -2,9 +2,11 @@
 
 namespace App\Models\Persons;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Administrator extends Model
+class Administrator extends Authenticatable
 {
   /**
   * The table associated with the model.
@@ -24,5 +26,5 @@ class Administrator extends Model
   public function person(){
     return $this->belongsTo(Persons::class, 'id_administrador');
   }
-  
+
 }

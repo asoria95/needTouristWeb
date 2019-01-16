@@ -20,4 +20,6 @@ class Deal extends Model
   */
 
   protected $primaryKey = 'id_negocio';
+
+  protected $fillable = ['id_negocio','nombre', 'direccion', 'telefono', 'email'];
 }
