@@ -1,3 +1,4 @@
+
 @include('layouts.head')
 
 <title>Seccion de paquetes turísticos </title>
@@ -5,6 +6,7 @@
 @include('layouts.css')
 
 <body>
+
 <div id="wrapper">
 <!-- Navigation -->
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -40,7 +42,6 @@
  <!-- /.navbar-collapse  -->
  </nav>
 
-
 <div id="page-wrapper">
 
 <div class="container-fluid">
@@ -65,6 +66,7 @@
 
     <div class="row">
       <div class="col-md-12">
+
           <a class="btn btn-primary btn-lg" href="{{route('packageTourist.create')}}" ><i class="fas fa-plus-circle"></i> Añadir Paquete Turístico</a>
         <hr>
       </div>
@@ -86,4 +88,6 @@
 <!-- /#page-wrapper -->
   </div>
 <!-- /#wrapper -->
+
 @include('layouts.final')
+

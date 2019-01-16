@@ -10,8 +10,8 @@
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 
  @include('layouts.banner')
- @include('Tourist.partials.menuTourist')
 
+ @include('Tourist.partials.menuTourist')
 <div id="page-wrapper">
 
 <div class="container-fluid">

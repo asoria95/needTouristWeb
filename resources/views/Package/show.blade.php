@@ -1,3 +1,4 @@
+
 @include('layouts.head')
 
 <title>Seccion de paquetes turísticos </title>
@@ -5,6 +6,7 @@
 @include('layouts.css')
 
 <body>
+
 <div id="wrapper">
 <!-- Navigation -->
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
@@ -20,7 +22,6 @@
            <a href="{{route('tourist.index')}}"><i class="fa fa-fw fa-users"></i> Sección Usuarios</a>
        </li>
        <!-- Menu afilliate Section -->
-       <li>
            <a href="{{route('afilliate.index')}}"><i class="fas fa-user-tie"></i> Listado de Afiliados</a>
        </li>
        <!-- Menu role Section -->
@@ -75,4 +76,6 @@
 <!-- /#page-wrapper -->
   </div>
 <!-- /#wrapper -->
+
 @include('layouts.final')
+

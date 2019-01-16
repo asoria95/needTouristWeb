@@ -39,6 +39,7 @@ class Persons extends Model
     return $this->hasOne(Role::class,'id_rol');
   }
 
+
   public function phones(){
     return $this->hasMany(Phones::class,'id_persona');
   }

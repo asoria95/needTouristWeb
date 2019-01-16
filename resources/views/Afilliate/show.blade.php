@@ -11,6 +11,7 @@
 
  @include('layouts.banner')
 
+
  <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
 
  <div class="collapse navbar-collapse navbar-ex1-collapse">
@@ -66,10 +67,12 @@
         @include('Afilliate.partials.afilliate')
 </div>
 <!-- /.container-fluid -->
+
         <!-- Adjustment -->
         @include('Afilliate.partials.adjustment')
           <!-- Adjustment -->
           @include('Afilliate.partials.adjustment')
+
 </div>
 <!-- /#page-wrapper -->
   </div>

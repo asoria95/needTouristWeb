@@ -142,5 +142,6 @@ class PackageTouristController extends Controller
     public function existItinerary(PackageTourist $packageTourist)
     {
       return (Storage::disk('local')->exists($packageTourist->itinerario));//Preguntar si existe un itinerario de ese paquete turistico
+
     }
 }

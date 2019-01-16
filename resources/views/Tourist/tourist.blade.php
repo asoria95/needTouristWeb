@@ -11,6 +11,7 @@
 
  @include('layouts.banner')
  @include('Tourist.partials.menuTourist')
+
 <div id="page-wrapper">
 
 <div class="container-fluid">
